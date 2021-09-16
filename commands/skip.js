@@ -3,7 +3,7 @@ const i18n = require("../util/i18n");
 
 module.exports = {
   name: "skip",
-  aliases: ["s"],
+  aliases: ["s", "fs"],
   description: i18n.__("skip.description"),
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);

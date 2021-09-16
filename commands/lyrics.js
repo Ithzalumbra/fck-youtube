@@ -4,7 +4,7 @@ const i18n = require("../util/i18n");
 
 module.exports = {
   name: "lyrics",
-  aliases: ["ly"],
+  aliases: ["ly", "l"],
   description: i18n.__("lyrics.description"),
   async execute(message) {
     const queue = message.client.queue.get(message.guild.id);
