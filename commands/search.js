@@ -3,6 +3,7 @@ const YouTubeAPI = require("simple-youtube-api");
 const { YOUTUBE_API_KEY } = require("../util/Util");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const i18n = require("../util/i18n");
+const {decode} = require('html-entities');
 
 module.exports = {
   name: "search",
@@ -25,7 +26,7 @@ module.exports = {
 
     try {
       const results = await youtube.searchVideos(search, 10);
-      results.map((video, index) => resultsEmbed.addField(video.shortURL, `${index + 1}. ${video.title}`));
+      results.map((video, index) => resultsEmbed.addField(video.shortURL, `${index + 1}. ${decode(video.title)}`));
 
       let resultsMessage = await message.channel.send(resultsEmbed);
 
