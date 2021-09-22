@@ -3,6 +3,7 @@ const i18n = require("../util/i18n");
 
 module.exports = {
   name: "shuffle",
+  aliases: ["random"],
   description: i18n.__("shuffle.description"),
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
