@@ -5,7 +5,7 @@ import { bot } from "../index";
 
 export default {
   name: "skip",
-  aliases: ["s"],
+  aliases: ["fs"],
   description: i18n.__("skip.description"),
   execute(message: Message) {
     const queue = bot.queues.get(message.guild!.id);

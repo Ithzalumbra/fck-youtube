@@ -13,6 +13,9 @@
     "embedTitle": "Ayuda con {botname} ",
     "embedDescription": "Listado de comandos"
   },
+  "config": {
+    "description": "Config del bot"
+  },
   "invite": {
     "description": "Envía un link de invitación para el bot"
   },
@@ -99,6 +102,11 @@
     "currentPage": "Página actual - ",
     "embedTitle": "Cola de música\n",
     "embedCurrentSong": "**Música actual - [{title}]({url})**\n\n{info}"
+  },
+  "clear": {
+    "description": "Elimina la cola de reproducción",
+    "errorNotQueue": "No hay una cola de reproduccón.",
+    "result": "<@{author}> ❌ Eliminó la cola de reproducción."
   },
   "remove": {
     "description": "Elimina canciones de la cola de reproducción",

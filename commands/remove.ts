@@ -30,6 +30,7 @@ export default {
         if (songs.find((songIndex) => songIndex - 1 === index)) removed.push(item);
         else return true;
       });
+      console.log(queue)
 
       queue.textChannel.send(
         i18n.__mf("remove.result", {

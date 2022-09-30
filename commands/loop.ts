@@ -5,7 +5,7 @@ import { bot } from "../index";
 
 export default {
   name: "loop",
-  aliases: ["l"],
+  aliases: ["lp"],
   description: i18n.__("loop.description"),
   execute(message: Message) {
     const queue = bot.queues.get(message.guild!.id);

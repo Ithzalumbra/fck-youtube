@@ -6,7 +6,7 @@ import { bot } from "../index";
 
 export default {
   name: "lyrics",
-  aliases: ["ly"],
+  aliases: ["ly", 'l'],
   description: i18n.__("lyrics.description"),
   async execute(message: Message) {
     const queue = bot.queues.get(message.guild!.id);

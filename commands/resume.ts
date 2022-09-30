@@ -12,6 +12,7 @@ export default {
 
     if (!queue) return message.reply(i18n.__("resume.errorNotQueue")).catch(console.error);
     if (!canModifyQueue(message.member!)) return i18n.__("common.errorNotChannel");
+    console.log(queue)
 
     if (queue.player.unpause()) {
       queue.textChannel

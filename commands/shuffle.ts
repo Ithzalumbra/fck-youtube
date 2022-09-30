@@ -5,6 +5,7 @@ import { bot } from "../index";
 
 export default {
   name: "shuffle",
+  aliases: ['random'],
   description: i18n.__("shuffle.description"),
   execute(message: Message) {
     const queue = bot.queues.get(message.guild!.id);
