@@ -2,8 +2,7 @@ import { AudioResource, createAudioResource, StreamType } from "@discordjs/voice
 import youtube from "youtube-sr";
 import { i18n } from "../utils/i18n";
 import { videoPattern, isURL } from "../utils/patterns";
-const { stream , video_basic_info } = require('play-dl');
-
+import { stream , video_basic_info } from 'play-dl';
 export interface SongData {
   url: string;
   title: string;
@@ -31,8 +30,8 @@ export class Song {
 
       return new this({
         url: songInfo.video_details.url,
-        title: songInfo.video_details.title,
-        duration: parseInt(songInfo.video_details.durationInSec)
+        title: songInfo.video_details.title || '',
+        duration: songInfo.video_details.durationInSec
       });
     } 
     else {
@@ -52,8 +51,8 @@ export class Song {
 
       return new this({
         url: songInfo.video_details.url,
-        title: songInfo.video_details.title,
-        duration: parseInt(songInfo.video_details.durationInSec)
+        title: songInfo.video_details.title || '',
+        duration: songInfo.video_details.durationInSec
       });
     }
   }
@@ -71,7 +70,7 @@ export class Song {
 
     if (!stream) return;
 
-    return createAudioResource(playStream.stream, { metadata: this, inputType: playStream.type, inlineVolume: true });
+    return createAudioResource((playStream as any).stream, { metadata: this, inputType: (playStream as any).type, inlineVolume: true });
   }
 
   public startMessage() {
