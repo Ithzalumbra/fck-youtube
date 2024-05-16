@@ -108,6 +108,10 @@
     "errorNotQueue": "No hay una cola de reproduccón.",
     "result": "<@{author}> ❌ Eliminó la cola de reproducción."
   },
+  "kill": {
+    "description": "Mata al bot",
+    "result": "<@{author}> 💀 Me mato..."
+  },
   "remove": {
     "description": "Elimina canciones de la cola de reproducción",
     "errorNotQueue": "No hay una cola de reproduccón.",
