@@ -110,7 +110,7 @@
   },
   "kill": {
     "description": "Mata al bot",
-    "result": "<@{author}> 💀 Me mato..."
+    "result": "💀 Me mataste..."
   },
   "remove": {
     "description": "Elimina canciones de la cola de reproducción",
