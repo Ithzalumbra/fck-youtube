@@ -3,6 +3,7 @@ import youtube from "youtube-sr";
 import { i18n } from "../utils/i18n";
 import { videoPattern, isURL } from "../utils/patterns";
 import { stream , video_basic_info } from 'play-dl';
+import ytdl from "ytdl-core";
 export interface SongData {
   url: string;
   title: string;
@@ -60,17 +61,17 @@ export class Song {
   public async makeResource(): Promise<AudioResource<Song> | void> {
     let playStream;
 
-    let type = this.url.includes("youtube.com") ? StreamType.Opus : StreamType.OggOpus;
-
     const source = this.url.includes("youtube") ? "youtube" : "soundcloud";
 
     if (source === "youtube") {
-      playStream = await stream(this.url);
+      playStream = ytdl(this.url, { filter: "audioonly", liveBuffer: 0, quality: "lowestaudio" });
     }
 
     if (!stream) return;
 
-    return createAudioResource((playStream as any).stream, { metadata: this, inputType: (playStream as any).type, inlineVolume: true });
+    if (!playStream) throw new Error("No stream found");
+
+    return createAudioResource(playStream, { metadata: this, inlineVolume: true });
   }
 
   public startMessage() {
